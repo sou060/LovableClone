@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api/projects/{projectId}/files")
 @RequiredArgsConstructor
 public class FileController {
-    public FileService fileService;
+    public  FileService fileService;
 
     @GetMapping
     public ResponseEntity<List<FileNode>> getFileTree(@PathVariable Long projectId){
