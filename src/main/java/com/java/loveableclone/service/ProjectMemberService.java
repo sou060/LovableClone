@@ -10,4 +10,8 @@ public interface ProjectMemberService {
     List<MemberResponse> getProjectMembers(Long userId, Long projectId);
 
     MemberResponse inviteMember(Long projectId, Long userId, InviteMemberRequest request);
+
+    MemberResponse updateMemberRole(Long projectId, Long userId, InviteMemberRequest request);
+
+    MemberResponse deleteProjectMember(Long projectId, Long userId, InviteMemberRequest request);
 }
