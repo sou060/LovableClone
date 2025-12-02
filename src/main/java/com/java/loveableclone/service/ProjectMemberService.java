@@ -2,10 +2,11 @@ package com.java.loveableclone.service;
 
 import com.java.loveableclone.dto.member.InviteMemberRequest;
 import com.java.loveableclone.dto.member.MemberResponse;
-import org.jspecify.annotations.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface ProjectMemberService {
     List<MemberResponse> getProjectMembers(Long userId, Long projectId);
 

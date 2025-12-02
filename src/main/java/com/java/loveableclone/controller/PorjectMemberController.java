@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/projects/{projectId}/members")
 @RequiredArgsConstructor
 public class PorjectMemberController {
-    private ProjectMemberService projectMemberService;
+    private final ProjectMemberService projectMemberService;
 
     @GetMapping
     public ResponseEntity<List<MemberResponse>> getMembers(@PathVariable Long projectId) {
@@ -25,19 +25,19 @@ public class PorjectMemberController {
     @PostMapping
     public ResponseEntity<MemberResponse> addMember(@PathVariable Long projectId, @RequestBody InviteMemberRequest request) {
         Long userId = 1L;
-        return ResponseEntity.status(HttpStatus.CREATED).body(projectMemberService.inviteMember(projectId,userId,request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(projectMemberService.inviteMember(projectId, userId, request));
     }
 
     @PatchMapping("/{memberId}")
     public ResponseEntity<MemberResponse> updateMemberRole(@PathVariable Long projectId, @PathVariable Long memberId, @RequestBody InviteMemberRequest request) {
         Long userId = 1L;
-        return ResponseEntity.ok(projectMemberService.updateMemberRole(projectId,userId,request));
+        return ResponseEntity.ok(projectMemberService.updateMemberRole(projectId, userId, request));
     }
 
     @DeleteMapping("/{memberId}")
     public ResponseEntity<MemberResponse> deleteMemberRole(@PathVariable Long projectId, @PathVariable Long memberId, @RequestBody InviteMemberRequest request) {
         Long userId = 1L;
-        return ResponseEntity.ok(projectMemberService.deleteProjectMember(projectId,userId,request));
+        return ResponseEntity.ok(projectMemberService.deleteProjectMember(projectId, userId, request));
     }
 
 }

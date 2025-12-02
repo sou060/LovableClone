@@ -8,5 +8,5 @@ public record PlanResponse(
         Boolean unlimitedAI,
         String price
 
-        ) {
+) {
 }

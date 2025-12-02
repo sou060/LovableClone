@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/api/projects")
 @RequiredArgsConstructor
 public class ProjectController {
-    private ProjectService projectService;
+    private final ProjectService projectService;
 
 
     @GetMapping
@@ -40,15 +40,14 @@ public class ProjectController {
     @PatchMapping("/{id}")
     public ResponseEntity<ProjectResponse> updateProject(@PathVariable Long id, @RequestBody ProjectRequest request) {
         Long userId = 1L;
-        return ResponseEntity.ok(projectService.updateProject(id,userId,request));
+        return ResponseEntity.ok(projectService.updateProject(id, userId, request));
 
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProject(@PathVariable Long id)
-    {
-        Long userId=1L;
-        projectService.softDelete(id,userId);
+    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
+        Long userId = 1L;
+        projectService.softDelete(id, userId);
         return ResponseEntity.noContent().build();
     }
 }

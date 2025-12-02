@@ -14,7 +14,7 @@ public class Project {
     Long id;
     String name;
     User owner;
-    Boolean isPublic=false;
+    Boolean isPublic = false;
     Instant createdAt;
     Instant updatedAt;
     Instant deletedAt;

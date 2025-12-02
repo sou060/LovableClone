@@ -16,16 +16,17 @@ import java.util.List;
 @RequestMapping("/api/projects/{projectId}/files")
 @RequiredArgsConstructor
 public class FileController {
-    public  FileService fileService;
+    public final FileService fileService;
 
     @GetMapping
-    public ResponseEntity<List<FileNode>> getFileTree(@PathVariable Long projectId){
-        Long userId=1L;
-        return ResponseEntity.ok(fileService.getFiletree(userId,projectId));
+    public ResponseEntity<List<FileNode>> getFileTree(@PathVariable Long projectId) {
+        Long userId = 1L;
+        return ResponseEntity.ok(fileService.getFiletree(userId, projectId));
     }
+
     @GetMapping("/{*path}")
-    public ResponseEntity<FileContentResponse> getFile(@PathVariable Long projectId, @PathVariable String path){
-        Long userId=1L;
-        return ResponseEntity.ok(fileService.getFileContent(projectId,userId,path));
+    public ResponseEntity<FileContentResponse> getFile(@PathVariable Long projectId, @PathVariable String path) {
+        Long userId = 1L;
+        return ResponseEntity.ok(fileService.getFileContent(projectId, userId, path));
     }
 }
